@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/sy_frame"
+        ></FrameLayout>
+
+
+    底部栏
+
+    <RadioGroup
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/sy_study"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+
+            android:button="@null"
+            android:drawablePadding="13.3dp"
+            android:drawableTop="@drawable/sy_study"
+            android:gravity="center_horizontal"
+            android:text="学习"
+
+            android:textColor="@drawable/sy_text_coclor"
+            android:textSize="10sp"
+
+            />
+
+        <RadioButton
+            android:id="@+id/sy_classes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13.3dp"
+            android:button="@null"
+            android:drawablePadding="13.3dp"
+            android:drawableTop="@drawable/sy_classes"
+            android:gravity="center_horizontal"
+            android:text="课程"
+            android:textColor="@drawable/sy_text_coclor"
+            android:textSize="10sp"
+
+            />
+
+        <RadioButton
+            android:id="@+id/sy_myselef"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13.3dp"
+
+            android:button="@null"
+            android:drawablePadding="13.3dp"
+            android:drawableTop="@drawable/sy_myself"
+            android:gravity="center_horizontal"
+            android:text="我的"
+            android:textColor="@drawable/sy_text_coclor"
+            android:textSize="10sp"
+
+            />
+    </RadioGroup>
+</LinearLayout>

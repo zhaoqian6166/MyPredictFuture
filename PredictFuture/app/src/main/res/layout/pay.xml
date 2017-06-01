@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/pay_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/common_left_arrow" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="支付结算"
+            android:textColor="#121212"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <include layout="@layout/style_null" />
+支付金额
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="133.3dp"
+        android:orientation="vertical">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="支付金额"
+           android:layout_marginTop="13.3dp"
+           android:layout_gravity="center_horizontal"
+           style="@style/text_gray" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="￥6.00"
+            android:textSize="48sp"
+            android:textColor="#e94b41"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
+    选择支付方式
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="73.3dp"
+        android:text="选择支付方式"
+        android:paddingLeft="20dp"
+        android:textSize="21.3sp"
+        android:textColor="#323232"
+        android:background="#f4f4f4"
+        android:gravity="bottom"
+        android:paddingBottom="13.3dp"
+        />
+    支付方式
+    苹果商店支付
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73.3dp"
+        android:orientation="horizontal"
+
+        >
+        <ImageView
+            android:layout_width="29.3dp"
+            android:layout_height="29.3dp"
+            android:src="@mipmap/balance_appstore"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="13.3dp"
+
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="73.3dp"
+            android:text="苹果商店支付"
+            android:textSize="21.3sp"
+            android:textColor="#323232"
+            android:gravity="center_vertical"
+             />
+        <ImageView
+           android:layout_gravity="center_vertical"
+            android:layout_width="26.7dp"
+            android:layout_height="26.7dp"
+            android:src="@drawable/pay_choose"
+            android:layout_marginRight="20dp"
+
+            />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="13.3dp"
+        android:background="#f4f4f4"
+        />
+    余额支付
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73.3dp"
+        android:orientation="horizontal"
+
+        >
+        <ImageView
+            android:layout_width="29.3dp"
+            android:layout_height="29.3dp"
+            android:src="@mipmap/balance_remainder"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="13.3dp"
+
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="73.3dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="余额支付"
+            android:textSize="21.3sp"
+            android:textColor="#323232"
+
+            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="余额支付:￥0.00"
+                android:textSize="16sp"
+                android:textColor="#898989"
+                />
+
+        </LinearLayout>
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="26.7dp"
+            android:layout_height="26.7dp"
+            android:src="@drawable/pay_choose"
+            android:layout_marginRight="20dp"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="余额不足"
+            android:textSize="16sp"
+            android:layout_marginLeft="62.3dp"
+            android:textColor="#e94b41"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="13.3dp"
+
+
+            />
+        <ImageView
+            android:layout_width="73.3dp"
+            android:layout_height="26.7dp"
+            android:src="@mipmap/course_recharge"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+
+            />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="13.3dp"
+        android:background="#f4f4f4"
+        />
+微信支付
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73.3dp"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="29.3dp"
+            android:layout_height="29.3dp"
+            android:src="@mipmap/balance_wechat"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="13.3dp"
+
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="73.3dp"
+            android:text="微信支付"
+            android:textSize="21.3sp"
+            android:textColor="#323232"
+            android:gravity="center_vertical"
+            />
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="26.7dp"
+            android:layout_height="26.7dp"
+            android:src="@drawable/pay_choose"
+            android:layout_marginRight="20dp"
+
+            />
+    </LinearLayout>
+
+    支付宝支付
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="73.3dp"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="29.3dp"
+            android:layout_height="29.3dp"
+            android:src="@mipmap/balance_alipay"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="13.3dp"
+
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="73.3dp"
+            android:text="支付宝支付"
+            android:textSize="21.3sp"
+            android:textColor="#323232"
+            android:gravity="center_vertical"
+            />
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:layout_width="26.7dp"
+            android:layout_height="26.7dp"
+            android:src="@drawable/pay_choose"
+            android:layout_marginRight="20dp"
+
+            />
+    </LinearLayout>
+    确定支付模块
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#f4f4f4"
+        android:orientation="vertical"
+        >
+   <Button
+    android:layout_width="466.7dp"
+    android:layout_height="53.3dp"
+    android:background="@mipmap/balance_confirm"
+    android:layout_marginTop="60.3dp"
+    android:layout_gravity="center_horizontal"
+
+    />
+    </LinearLayout>
+</LinearLayout>

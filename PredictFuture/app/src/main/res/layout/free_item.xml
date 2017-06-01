@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    <com.facebook.drawee.view.SimpleDraweeView
+        fresco:failureImageScaleType="centerInside"
+        android:layout_marginTop="13.3dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="13.3dp"
+        android:id="@+id/sy_item_img"
+        android:layout_width="146.7dp"
+        android:layout_height="133.3dp"
+        android:src="@mipmap/home_page_content_picture_01"
+
+        />
+        <com.facebook.drawee.view.SimpleDraweeView
+            fresco:failureImageScaleType="centerInside"
+            android:id="@+id/sy_item_listen"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/home_page_content_frequency"
+            android:layout_alignBottom="@+id/sy_item_img"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_alignRight="@+id/sy_item_img"
+            android:layout_alignEnd="@+id/sy_item_img" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="26.7dp"
+        >
+        <TextView
+            android:layout_marginTop="21.3dp"
+            android:text="连锁门店课程大纲"
+            android:id="@+id/sy_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="21.3dp"
+            android:textColor="#323232"
+            android:textSize="16sp"
+            android:layout_marginBottom="13.3dp"
+
+            />
+
+        <TextView
+            android:text="知名美业顾问免费教你连锁开店"
+            android:id="@+id/sy_item_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="17.3dp"
+            android:textColor="#808080"
+            android:layout_marginRight="30dp"
+            android:textSize="13sp"
+            android:layout_marginBottom="20dp"
+
+
+            />
+
+        <TextView
+            android:textSize="14sp"
+            android:id="@+id/sy_item_teacherName"
+            android:text="余春华老师"
+            android:textColor="#636363"
+            android:layout_width="wrap_content"
+            android:layout_height="18.7dp"
+            android:layout_marginBottom="20dp"
+
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="12dp"
+            android:id="@+id/sy_item_price"
+            android:text="免费"
+            android:textColor="#ffd300"
+            android:textSize="9sp"
+
+            />
+            <TextView
+                android:id="@+id/sy_item_time"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:textColor="#bfbfbf"
+                android:textSize="9sp"
+                android:text="时长：20分钟"
+                android:layout_marginLeft="13.3dp"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cfcfcf"
+        />
+</LinearLayout>
