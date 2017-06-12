@@ -12,5 +12,6 @@ public interface IBasePresenter {
     void getBanner(UrlBean bean);
     void getBest(UrlBean bean,MyAdapter adapter);
    // void getAdapter(MyAdapter adapter);
+    void getMyClasses(MyAdapter adapter);
 
 }

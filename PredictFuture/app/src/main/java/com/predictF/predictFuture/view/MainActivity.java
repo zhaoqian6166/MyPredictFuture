@@ -1,11 +1,12 @@
 package com.predictF.predictFuture.view;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 
@@ -14,14 +15,14 @@ import com.predictF.predictFuture.bean.FirstHandBean;
 import com.predictF.predictFuture.bean.UrlBean;
 import com.predictF.predictFuture.presenter.main.PresenterClass;
 import com.predictF.predictFuture.util.Tool;
-import com.predictF.predictFuture.view.main.IBaseClass;
-import com.predictF.predictFuture.view.main.Iview;
+import com.predictF.predictFuture.view.main.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
-public class MainActivity extends IBaseClass {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.sy_frame)
     FrameLayout syFrame;
@@ -34,6 +35,10 @@ public class MainActivity extends IBaseClass {
     private PresenterClass presenterClass;
     private String TAG = "MainActivity";
     private SharedPreferences.Editor editor;
+    private FragmentManager manager;
+    private SY_Fragment sy_fragment;
+    private MyClassesFragment myClassesFragment;
+    private MineFragment mineFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,17 +93,61 @@ public class MainActivity extends IBaseClass {
 
     }
 
-    void initFragment(){
-        SY_Fragment sy_fragment = new SY_Fragment();
+    void initFragment() {
+        sy_fragment = new SY_Fragment();
         Try aTry = new Try();
-        FragmentManager manager = getSupportFragmentManager();
+        myClassesFragment = new MyClassesFragment();
+        mineFragment = new MineFragment();
+        manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.sy_frame,sy_fragment,"sy");
-     //   transaction.add(R.id.sy_frame,aTry,"try");
+        transaction.add(R.id.sy_frame, sy_fragment, "sy");
+        transaction.add(R.id.sy_frame, myClassesFragment, "myclass");
+        transaction.add(R.id.sy_frame, mineFragment, "mine");
         transaction.show(sy_fragment);
-     //   transaction.hide(aTry);
+        transaction.hide(myClassesFragment);
+        transaction.hide(mineFragment);
         transaction.commit();
 
     }
 
+    @OnClick({R.id.sy_study, R.id.sy_classes, R.id.sy_myselef})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.sy_study:
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.show(sy_fragment);
+                transaction.hide(myClassesFragment);
+                transaction.hide(mineFragment);
+                transaction.commit();
+                break;
+            case R.id.sy_classes:
+                FragmentTransaction transaction2 = manager.beginTransaction();
+                transaction2.show(myClassesFragment);
+                transaction2.hide(sy_fragment);
+                transaction2.hide(mineFragment);
+                transaction2.commit();
+                break;
+            case R.id.sy_myselef:
+                FragmentTransaction transaction3 = manager.beginTransaction();
+                transaction3.show(mineFragment);
+                transaction3.hide(sy_fragment);
+                transaction3.hide(myClassesFragment);
+                transaction3.commit();
+
+                break;
+        }
+    }
+
+    //回调
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        Log.d("userInfo","requestCode:"+requestCode+"--resultCode:"+resultCode);
+        if (requestCode == 100 & resultCode == 101) {
+            String userName = data.getStringExtra("userName");//得到用户名
+            Log.d("userName",userName);
+            mineFragment.setUserInfo(userName);
+        }
+
+    }
 }

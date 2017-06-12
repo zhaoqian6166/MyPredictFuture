@@ -1,6 +1,7 @@
 package com.predictF.predictFuture.modle.base;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.predictF.predictFuture.bean.UrlBean;
@@ -66,7 +67,7 @@ public class BaseModleClass implements IBaseModle {
                     }
                 });
     }
-
+//得到
     @Override
     public void getBest(String url, final Context context) {
         //执行网络请求
@@ -99,10 +100,51 @@ public class BaseModleClass implements IBaseModle {
                     public void onNext(UrlBean bean) {
                         Log.d("getBest","--onNext--");
                         //请求成功  将请求成功的数据返回到P层
-                        Log.d("getBest",bean.data.topic.size()+"");
-                        MyAdapter myAdapter = new MyAdapter(bean.data.topic, context);
+                        Log.d("getBest",bean.data.list_try.size()+"");
+                        MyAdapter myAdapter = new MyAdapter(bean.data.list_try, context);
                        // bpc.getAdapter(myAdapter);
                         bpc.getBest(bean,myAdapter);
+                    }
+                });
+    }
+//得到我的课程
+    @Override
+    public void getMyClasses(String url) {
+        //执行网络请求
+        IRetrofitService retrofitService = Tool.getNetData(url);
+        //java动态代理方式实现
+        SharedPreferences spf = Tool.getSpf(context);
+        String session = spf.getString("session", "null");
+        HashMap<String, String> map = Tool.getMap(context);
+        String s=Tool.getP_key(context)+Tool.getAppid(context)+Tool.getDevId(context)+Tool.getVersionCode(context)+Tool.getTick()+session+5+0;
+        String sign = Tool.getSign(s);
+        map.put("session",session);
+        map.put("page_size",5+"");
+        map.put("page_index",0+"");
+        map.put("sign",sign);
+
+        Observable<UrlBean> observable = retrofitService.getMyClasses(map);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<UrlBean>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d("getMyClasses","--onCompleted--");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("getMyClasses","--onError--");
+                    }
+
+                    @Override
+                    public void onNext(UrlBean bean) {
+                        Log.d("getMyClasses","--onNext--");
+                        //请求成功  将请求成功的数据返回到P层
+                        Log.d("getMyClasses",bean.data.course.size()+"");
+                        MyAdapter myAdapter = new MyAdapter(bean.data.course, context);
+                        // bpc.getAdapter(myAdapter);
+                        bpc.getMyClasses(myAdapter);
                     }
                 });
     }

@@ -12,5 +12,7 @@ public interface IModle {
     void getUrl(String url);
     void getRegin(String url,String num,String pwd,String rand);
     void getReginCheck(String url, String pwd, String rand, String session, Context context);
-
+    void getPwdLogin(String url,String tel,String pwd);
+    void getDetailClasses(String url,String id);
+    void  geHeart(String url,String object_id);
 }

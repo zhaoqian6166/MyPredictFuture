@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/x44"
+    android:layout_height="@dimen/y40"
+    android:layout_gravity="center_vertical"
+    android:layout_marginRight="@dimen/x33"
+    android:checked="true"
+    tools:showIn="@layout/pay_main"
+    android:button="@null"
+    android:background="@drawable/pay_right"
+
+    />

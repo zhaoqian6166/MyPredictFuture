@@ -11,6 +11,7 @@ import com.predictF.predictFuture.util.Api;
 import com.predictF.predictFuture.util.IRetrofitService;
 import com.predictF.predictFuture.util.Tool;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import rx.Observable;
@@ -76,6 +77,7 @@ public class ModleClass implements IModle {
         //执行网络请求
         IRetrofitService retrofitService = Tool.getNetData(url);
         String s=Tool.getP_key(context)+Tool.getAppid(context)+Tool.getDevId(context)+Tool.getVersionCode(context)+Tool.getTick();
+       Log.d("gethost--s","key:"+Tool.getP_key(context)+"-appid:"+Tool.getAppid(context)+"-devid:"+Tool.getDevId(context)+"-code:"+Tool.getVersionCode(context)+"-tick"+Tool.getTick());
         String sign = Tool.getSign(s);
         Observable<UrlBean> observable = retrofitService.getUrlData(Tool.getAppid(context), Tool.getDevId(context), Tool.getVersionCode(context), Tool.getTick(),sign);
         observable.subscribeOn(Schedulers.io())
@@ -83,20 +85,18 @@ public class ModleClass implements IModle {
                 .subscribe(new Observer<UrlBean>() {
                     @Override
                     public void onCompleted() {
-                        Log.d("测试","--onCompleted--");
-                        Log.i(TAG,"onCompleted");
+                        Log.d("gethost","--onCompleted--");
 
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.d("测试","--onError--");
-                        Log.i(TAG,"onError");
+                        Log.d("gethost","--onError--");
                     }
 
                     @Override
                     public void onNext(UrlBean bean) {
-                        Log.d("测试","--onNext--");
+                        Log.d("gethost","--onNext--");
                        // Log.i(TAG,bean.ret);
                         //请求成功  将请求成功的数据返回到P层
                         iPresenter.getUrlData(bean);
@@ -182,6 +182,114 @@ public class ModleClass implements IModle {
                         //将得到的值返回到P层  bean中session有效
                         // iPresenter.getBest(bean,myAdapter);
                         iPresenter.regin(bean);
+                    }
+                });
+    }
+//登录
+    @Override
+    public void getPwdLogin(String url, String tel, String pwd) {
+        IRetrofitService retrofitService = Tool.getNetData(url);
+        //java动态代理方式实现
+        HashMap<String, String> map = Tool.getMap(context);
+        String s=Tool.getP_key(context)+Tool.getAppid(context)+Tool.getDevId(context)+Tool.getVersionCode(context)+Tool.getTick()+tel+pwd;
+        map.put("mobile",tel);
+        map.put("passwd",pwd);
+        String sign = Tool.getSign(s);//获得sign
+        map.put("sign",sign);
+        Observable<UrlBean> observable = retrofitService.userPwdLogin(map);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<UrlBean>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d("getLogin","--onCompleted--");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("getLogin","--onError--");
+                    }
+
+                    @Override
+                    public void onNext(UrlBean bean) {
+                        Log.d("getLogin","--onNext--");
+                        Log.d("getLogin","--session--"+bean.data.session);
+                        //将得到的值返回到P层  bean中session有效
+                        // iPresenter.getBest(bean,myAdapter);
+                      //  iPresenter.regin(bean);
+                        iPresenter.userPwdlogin(bean);
+                    }
+                });
+    }
+
+    @Override
+    public void getDetailClasses(String url, String id) {
+        IRetrofitService retrofitService = Tool.getNetData(url);
+        //java动态代理方式实现
+        HashMap<String, String> map = Tool.getMap(context);
+        String s=Tool.getP_key(context)+Tool.getAppid(context)+Tool.getDevId(context)+Tool.getVersionCode(context)+Tool.getTick()+id;
+     //   map.put("mobile",tel);
+        map.put("object_id",id);
+        String sign = Tool.getSign(s);//获得sign
+        map.put("sign",sign);
+        Observable<UrlBean> observable = retrofitService.getDetailClasses(map);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<UrlBean>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d("getDetailClasses","--onCompleted--");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("getDetailClasses","--onError--");
+                    }
+
+                    @Override
+                    public void onNext(UrlBean bean) {
+                        Log.d("getDetailClasses","--onNext--");
+                     //   Log.d("getLogin","--session--"+bean.data.session);
+                        //将得到的值返回到P层  bean中session有效
+                        iPresenter.getDetailClasses(bean);
+                    }
+                });
+    }
+
+    @Override
+    public void geHeart(String url, String object_id) {
+        IRetrofitService retrofitService = Tool.getNetData(url);
+        //java动态代理方式实现
+        HashMap<String, String> map = Tool.getMap(context);
+      //  Tool.getSpf(context).getString("session","");
+        String session = Tool.getSession(context);
+        String s=Tool.getP_key(context)+Tool.getAppid(context)+Tool.getDevId(context)+Tool.getVersionCode(context)+Tool.getTick()+session+object_id;
+        //   map.put("mobile",tel);
+        map.put("session",session);
+        map.put("object_id",object_id);
+        String sign = Tool.getSign(s);//获得sign
+        map.put("sign",sign);
+        Observable<UrlBean> observable = retrofitService.getDetailClasses(map);
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<UrlBean>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d("geHeart","--onCompleted--");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d("geHeart","--onError--");
+                    }
+
+                    @Override
+                    public void onNext(UrlBean bean) {
+                        Log.d("geHeart","--onNext--");
+                     //      Log.d("geHeart","--session--"+bean.data.session);
+                        //将得到的值返回到P层  bean中session有效
+                        Log.d("geHeart:","statu"+bean.data.status+"--msg:"+bean.data.msg);
+                        iPresenter.getHeartP(bean);
                     }
                 });
     }

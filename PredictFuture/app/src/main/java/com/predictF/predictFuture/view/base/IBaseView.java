@@ -11,4 +11,5 @@ import com.predictF.predictFuture.modle.base.MyAdapter;
 public interface IBaseView {
     void showBanner(UrlBean bean);
     void showBest(UrlBean bean,MyAdapter adapter);
+    void showMyClasses(MyAdapter adapter);
 }

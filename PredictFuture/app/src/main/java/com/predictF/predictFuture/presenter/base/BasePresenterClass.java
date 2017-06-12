@@ -33,6 +33,10 @@ public class BasePresenterClass implements IBasePresenter {
         String newUrl = Tool.getNewUrl(context);
         bmc.getBest(newUrl,context);
     }
+    public void getMyClass(Context context){
+        String newUrl = Tool.getNewUrl(context);
+        bmc.getMyClasses(newUrl);
+    }
 
     @Override
     public void getBanner(UrlBean bean) {
@@ -43,6 +47,12 @@ public class BasePresenterClass implements IBasePresenter {
     public void getBest(UrlBean bean,MyAdapter adapter) {
         iBaseView.showBest(bean,adapter);
 
+    }
+
+    @Override
+    public void getMyClasses(MyAdapter adapter) {
+        //传到view层
+        iBaseView.showMyClasses(adapter);
     }
 
 

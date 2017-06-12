@@ -1,5 +1,6 @@
 package com.predictF.predictFuture.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -8,11 +9,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.predictF.predictFuture.R;
 import com.predictF.predictFuture.bean.UrlBean;
 import com.predictF.predictFuture.presenter.main.PresenterClass;
-import com.predictF.predictFuture.view.main.IBaseClass;
+import com.predictF.predictFuture.view.main.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,7 +25,7 @@ import butterknife.OnClick;
  * <p/>
  * 类的用途：注册页面
  */
-public class ReginActivity extends IBaseClass {
+public class ReginActivity extends BaseActivity {
 
     @BindView(R.id.regin_return)
     ImageView reginReturn;
@@ -60,8 +62,28 @@ public class ReginActivity extends IBaseClass {
     @Override
     public void userRegin(UrlBean bean) {
         super.userRegin(bean);
-        Log.d("tag","注册成功");
-        Log.d("tag",bean.data.session);
+        //注册成功  得到session
+        switch (bean.ret){
+            case -5:
+                Toast.makeText(ReginActivity.this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+                break;
+            case -10:
+                Toast.makeText(ReginActivity.this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+                break;
+            case -6:
+                Toast.makeText(ReginActivity.this, "手机号码已经被注册", Toast.LENGTH_SHORT).show();
+                break;
+            case 0:
+                Toast.makeText(ReginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.putExtra("userName",reginTel.getText().toString());
+                intent.putExtra("userPwd",reginPwd.getText().toString());
+                ReginActivity.this.setResult(201,intent);
+                finish();
+                break;
+        }
+
+
     }
 
     //点击注册按钮

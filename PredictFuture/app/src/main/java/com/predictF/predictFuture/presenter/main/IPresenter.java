@@ -15,6 +15,9 @@ public interface IPresenter {
     void onFirstHandSuccess(FirstHandBean bean);//请求成功
     void getUrlData(UrlBean bean);
     void regin(UrlBean bean);
-    void reginCheck(UrlBean bean);
+    void userPwdlogin(UrlBean bean);
+    void getDetailClasses(UrlBean bean);
+    void getHeartP(UrlBean bean);
+
 
 }

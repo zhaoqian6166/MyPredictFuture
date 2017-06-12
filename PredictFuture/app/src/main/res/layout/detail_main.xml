@@ -3,15 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
 
     <RelativeLayout
+        android:animateLayoutChanges="true"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/y510">
 
-        >
+        <com.predictF.predictFuture.util.MyJCVideo
 
-        <ImageView
-            android:id="@+id/detail_img"
+            android:id="@+id/detail_video"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -19,52 +28,53 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13.3dp"
-            android:orientation="horizontal"
-
-            >
+            android:layout_height="@dimen/y90"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="26.7dp"
-                android:layout_height="26.7dp"
-                android:layout_marginLeft="20dp"
+                android:id="@+id/detail_return"
+                android:layout_width="@dimen/x45"
+                android:layout_height="@dimen/y40"
+                android:layout_marginLeft="@dimen/x33"
+                android:layout_gravity="center_vertical"
                 android:src="@mipmap/common_left_arrow"
-
                 />
-
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
+                android:layout_weight="1"
+                />
             <ImageView
                 android:id="@+id/detail_share"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginRight="30dp"
-                android:src="@mipmap/common_share"
-
+                android:layout_width="@dimen/x45"
+                android:layout_height="@dimen/y40"
+                android:layout_marginRight="@dimen/x33"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/course_share"
                 />
-        </LinearLayout>
 
+
+
+        </LinearLayout>
+-----------------------------------244.147
         <LinearLayout
+            android:id="@+id/detail_buy_ll"
             android:layout_width="match_parent"
-            android:layout_height="53.3dp"
-            android:layout_alignBottom="@id/detail_img"
+            android:layout_height="@dimen/y110"
+           android:layout_alignBottom="@id/detail_video"
             android:background="#121212"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/detail_Img_Text2"
                 android:layout_width="wrap_content"
-                android:layout_height="53.3dp"
-                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x15"
                 android:background="#121212"
-                android:gravity="center_vertical"
+              android:layout_gravity="center_vertical"
                 android:text="你可以免费试听180秒，收听完整版请选择立即购买"
                 android:textColor="#ffffff"
-                android:textSize="13.3sp" />
+                android:textSize="12sp" />
 
             <ImageView
                 android:layout_width="0dp"
@@ -72,11 +82,42 @@
                 android:layout_weight="1" />
 
             <Button
-                android:layout_width="80dp"
-                android:layout_height="33.3dp"
+                android:id="@+id/detail_buy"
+                android:layout_width="@dimen/x133"
+                android:layout_height="@dimen/y50"
                 android:layout_gravity="center_vertical"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="@dimen/x15"
                 android:background="@mipmap/course_buy_now" />
+
+        </LinearLayout>
+        试听结束后  购买按钮
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/detail_tryend_tobuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y200"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="观看完整版请"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+
+                />
+            <Button
+                android:layout_width="@dimen/x233"
+                android:layout_height="@dimen/y50"
+                android:id="@+id/detail_img"
+               android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@mipmap/course_click_to_buy"
+                />
+
 
         </LinearLayout>
 
@@ -96,25 +137,26 @@
              android:layout_alignParentRight="true"
              android:layout_alignParentEnd="true" />-->
     </RelativeLayout>
-
+头像
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="@dimen/y160"
         android:orientation="horizontal">
 
         <com.predictF.predictFuture.util.XCRoundImageView
             android:id="@+id/detail_teacherImg"
-            android:layout_width="66.7dp"
-            android:layout_height="66.7dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_width="@dimen/x111"
+            android:layout_height="@dimen/y100"
+            android:layout_marginLeft="@dimen/x33"
+            android:layout_marginTop="@dimen/y30"
             android:src="@mipmap/course_teachers" />
 
         <TextView
+            android:id="@+id/detail_teacherName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x33"
             android:text="余春华老师"
             android:textColor="#323232"
             android:textSize="21.3dp" />
@@ -125,169 +167,189 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:id="@+id/detail_listner"
+            android:layout_width="@dimen/x217"
+            android:layout_height="@dimen/y50"
+            android:layout_marginRight="@dimen/x33"
+            android:layout_marginTop="@dimen/y40"
             android:src="@mipmap/course_voice_box" />
 
     </LinearLayout>
 
     连锁数据
     空隙
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="13.3dp"
-        android:background="#f4f4f4"
-        />
+        android:layout_height="@dimen/y20"
+        android:background="#f4f4f4" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="@dimen/y170"
         android:orientation="horizontal"
 
         >
 
-   大纲
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="85dp"
-            android:orientation="vertical">
+        大纲
 
-            <TextView
-                style="@style/title1"
-                android:text="连锁门店课程大纲" />
-
-            <TextView
-                android:text="知名美业顾问免费教你连锁开店"
-                style="@style/title2" />
-
-        </LinearLayout>
-        <TextView
-            android:text="已售10000"
-            android:textColor="#ffd300"
-            style="@style/text_right" />
-    </LinearLayout>
-    空隙
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="13.3dp"
-        android:background="#f4f4f4"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        >
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical"
-            >
-        <TextView
-            style="@style/title1"
-            android:text="课程简介" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detail_title1"
+                style="@style/title1"
+                android:text="连锁门店课程大纲" />
+
+            <TextView
+                android:id="@+id/detail_title2"
+                style="@style/title2"
+                android:text="知名美业顾问免费教你连锁开店" />
+
+        </LinearLayout>
 
         <TextView
-            android:text="    还在为开店的事情烦恼吗？还在为开店的事情烦恼吗？还在为开店的事情烦恼吗？还在为开店的事情烦恼吗？还在为开店的事情烦恼吗？还在为开店的事情烦恼吗？还在为开店的事情烦恼吗？"
-            style="@style/title2" />
-        </LinearLayout>
-        右边的图片改动
-       <Button
-           android:background="@mipmap/course_down_arrow"
-           android:layout_width="16dp"
-           android:layout_height="16dp"
-           android:layout_marginTop="15dp"
-           android:layout_marginRight="20dp"
-            />
+            android:id="@+id/detail_showNum"
+            style="@style/text_right"
+            android:text="已售10000"
+            android:textColor="#ffd300" />
     </LinearLayout>
     空隙
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="13.3dp"
-        android:background="#f4f4f4"
-        />
+        android:layout_height="@dimen/y20"
+        android:background="#f4f4f4" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y200"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/title1"
+                android:text="课程简介" />
+
+            <TextView
+                android:scrollbars = "vertical"
+                android:id="@+id/detail_content"
+                style="@style/title2"
+                android:text="    还在为开店的事情烦恼吗？还事情烦恼吗？还事情烦恼吗？还在为开店的事情烦恼吗?" />
+        </LinearLayout>
+        右边的图片改动
+
+        <Button
+            android:layout_width="@dimen/x27"
+            android:layout_height="@dimen/y24"
+            android:layout_marginRight="@dimen/x33"
+            android:layout_marginTop="@dimen/y20"
+            android:background="@mipmap/course_down_arrow" />
+    </LinearLayout>
+    空隙
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y20"
+        android:background="#f4f4f4" />
     学员评价
+
     <TextView
 
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="15dp"
-        android:text="学员评价"
+        android:layout_height="@dimen/y90"
+        android:layout_marginLeft="@dimen/x33"
         android:gravity="center_vertical"
+        android:text="学员评价"
         android:textColor="#323232"
-        android:textSize="21.3sp"
-        />
+        android:textSize="21.3sp" />
     空隙
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="13.3dp"
-        android:background="#f4f4f4"
-        />
+        android:layout_height="@dimen/y20"
+        android:background="#f4f4f4" />
+
     <RadioGroup
-        android:layout_marginLeft="73.3dp"
         android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:layout_marginBottom="13.3dp"
+        android:layout_height="@dimen/y98"
+        android:layout_marginBottom="@dimen/y33"
+
+
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <RadioButton
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:button="@null"
-            android:drawablePadding="6.7dp"
-            android:drawableTop="@mipmap/course_custom_service"
-            android:gravity="center_horizontal"
+            android:gravity="center_vertical"
             android:text="客服"
-            android:textColor="#efefef"
-            android:textSize="13.3sp"
+            android:id="@+id/detail_tel"
+            android:drawableTop="@mipmap/course_custom_service"
+            style="@style/detail_rb"/>
+           <!-- android:layout_width="@dimen/x67"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:button="@null"
+            android:drawablePadding="@dimen/y10"
 
-            />
+            android:gravity="center_horizontal"
+
+            android:textColor="#b3b3b3"
+            android:textSize="13.3sp"-->
+
+
 
         <RadioButton
-            android:layout_gravity="center_vertical"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawablePadding="6.7dp"
-            android:drawableTop="@mipmap/course_collection"
-            android:gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/detail_heart"
             android:text="收藏"
-            android:textColor="#efefef"
-            android:textSize="13.3sp"
-            android:layout_marginLeft="73.3dp"
-
-            />
+            android:drawableTop="@drawable/detail_heart"
+            style="@style/detail_rb" />
 
         <RadioButton
-            android:layout_gravity="center_vertical"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawablePadding="6.7dp"
-            android:drawableTop="@mipmap/course_download"
-            android:gravity="center_horizontal"
+            android:gravity="center_vertical"
+            android:id="@+id/detail_download"
             android:text="下载"
-            android:layout_marginLeft="73.3dp"
-            android:textColor="#efefef"
-            android:textSize="13.3sp"
-            />
+            android:drawableTop="@mipmap/course_download"
+            style="@style/detail_rb"/>
+        <!--android:layout_width="@dimen/x67"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/x122"
+        android:button="@null"
+        android:drawablePadding="@dimen/y10"
+
+
+        android:gravity="center_horizontal"
+
+        android:textColor="#b3b3b3"
+        android:textSize="13.3sp" -->
+
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
+
         <ImageView
-            android:layout_width="106.7dp"
-            android:layout_height="33.3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/x50"
             android:background="@mipmap/course_post_test"
-            android:layout_marginRight="20dp"
 
             />
     </RadioGroup>
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

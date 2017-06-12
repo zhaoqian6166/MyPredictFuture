@@ -7,6 +7,7 @@ import com.predictF.predictFuture.bean.FirstHandErrorBean;
 import com.predictF.predictFuture.bean.UrlBean;
 import com.predictF.predictFuture.modle.main.ModleClass;
 import com.predictF.predictFuture.util.Api;
+import com.predictF.predictFuture.util.Image;
 import com.predictF.predictFuture.util.Tool;
 import com.predictF.predictFuture.view.main.Iview;
 
@@ -40,6 +41,21 @@ public class PresenterClass implements IPresenter {
         String newUrl = Tool.getNewUrl(context);
         iModle.getRegin(newUrl,num,pwd,rand);
     }
+    //登录
+    public void getPwdLogin(String tel,String pwd){
+        String newUrl = Tool.getNewUrl(context);
+        iModle.getPwdLogin(newUrl,tel,pwd);
+    }
+    //获得详情
+    public void getDetail(String id){
+        String newUrl = Tool.getNewUrl(context);
+        iModle.getDetailClasses(newUrl,id);
+    }
+    //收藏
+    public void getHeard(String id){
+        String newUrl = Tool.getNewUrl(context);
+        iModle.geHeart(newUrl,id);
+    }
 
 
     @Override
@@ -57,18 +73,29 @@ public class PresenterClass implements IPresenter {
 //注册
     @Override
     public void regin(UrlBean bean) {
-      //  iview.userRegin(bean);//将得到的注册信息传递到view
-      //  注册之后进行验证
-        String newUrl = Tool.getNewUrl(context);
-        String session = bean.data.session;
-      //  iModle.getReginCheck(newUrl,pwd,rand,session,context);
+        iview.userRegin(bean);
+    }
+
+    @Override
+    public void userPwdlogin(UrlBean bean) {
+        iview.userPwdLogin(bean);
+    }
+
+    @Override
+    public void getDetailClasses(UrlBean bean) {
+        iview.showDetail(bean);
+    }
+//收藏
+    @Override
+    public void getHeartP(UrlBean bean) {
+        iview.getHeartV(bean);
 
     }
 //验证
-    @Override
+   /* @Override
     public void reginCheck(UrlBean bean) {
-        iview.userRegin(bean);
 
-    }
+
+    }*/
 
 }

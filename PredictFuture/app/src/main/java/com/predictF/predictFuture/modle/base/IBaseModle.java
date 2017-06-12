@@ -14,4 +14,6 @@ import java.util.ArrayList;
 public interface IBaseModle {
     void getBanner(String url);
     void getBest(String url,Context context);
+    void getMyClasses(String url);
+
 }

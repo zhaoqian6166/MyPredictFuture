@@ -2,15 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.youth.banner.Banner
-        android:id="@+id/try_banner"
+    获得验证码 33.3dp   73.3dp  13.3dp   40dp
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1231"
-        />
+        android:layout_marginLeft="@dimen/x56"
+        android:layout_marginRight="@dimen/x56"
+        android:layout_height="@dimen/y110"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/y20"
+            android:text="验证码"
+            android:textColor="#121212"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/regin_Editcheck"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x67"
+            android:hint="输入你收到的验证码"
+            android:textColor="#cacaca"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
+
+            />
+        <TextView
+            android:id="@+id/regin_getCheckNum"
+            android:text="获取验证码"
+            android:textColor="#121212"
+            android:textSize="20sp"
+            android:layout_marginBottom="@dimen/y20"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

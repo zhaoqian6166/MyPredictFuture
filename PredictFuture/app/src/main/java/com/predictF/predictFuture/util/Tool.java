@@ -9,8 +9,11 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.predictF.predictFuture.bean.PayStyle;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -125,14 +128,6 @@ public class Tool {
 
     }
     public static String getSign(String string) {
-      /*  StringBuffer sb = new StringBuffer();
-        for (String s : map.keySet()) {
-            //map.keySet()返回的是所有key的值
-            sb.append(map.get(s));
-            System.out.println(sb + "     " + sb);
-        }
-        String string= sb.toString();*/
-        // String s=key+Api.TYPE+getDevId(context)+getVersionCode(context)+getTick();
         String sign = md5(string).toUpperCase();//md5加密算法后变为大写  获得最后的签名
         Log.d("tool", sign);
         return sign;
@@ -165,7 +160,7 @@ public class Tool {
         return url_host;
 
     }
-
+   //获得基础map
     public static HashMap<String, String> getMap(Context context) {
         HashMap<String, String> map = new HashMap<String, String>();
        // map.put("private_key", getP_key(context));
@@ -174,6 +169,36 @@ public class Tool {
         map.put("ver_code", Tool.getVersionCode(context) + "");
         map.put("tick", Tool.getTick());
         return map;
+    }
+    //获得session
+    public static String getSession(Context context){
+        String session = Tool.getSpf(context).getString("session", "null");
+        return session;
+    }
+    //获取登录状态
+    public static boolean getLoginState(Context context){
+        boolean loginState = Tool.getSpf(context).getBoolean("loginState",false);
+        return loginState;
+
+    }
+    //点击改变登录状态
+    public static ArrayList<PayStyle> setChecked(ArrayList<PayStyle> payStyles,int position){
+        boolean isCheck = payStyles.get(position).isCheck;
+        Log.i("aaa",position+"--"+isCheck);
+        if (isCheck){
+            payStyles.get(position).isCheck=false;
+        }else{
+            for (int i=0;i<payStyles.size();i++){
+                if (i==position){
+                    payStyles.get(i).isCheck=true;
+                }else{
+                    payStyles.get(i).isCheck=false;
+                }
+            }
+        }
+        return payStyles;
+
+
     }
 
 

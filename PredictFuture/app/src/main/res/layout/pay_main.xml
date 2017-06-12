@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y80"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/pay_return"
+        android:layout_width="@dimen/x55"
+        android:layout_height="@dimen/y50"
+        android:src="@mipmap/common_left_arrow_white"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="@dimen/y80"
+        android:textSize="25sp"
+        android:text="支付结算"
+        android:gravity="center"/>
+</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f4f4f4"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y20" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="支付金额"
+        android:gravity="center"/>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y30" />
+    <TextView
+        android:id="@+id/pay_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:text="nihao"
+        android:textColor="#e94b41"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y70" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x110"
+        android:background="#f4f4f4">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            android:text="选择支付方式"
+            android:layout_marginLeft="@dimen/x33"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/y20"
+            />
+    </RelativeLayout>
+
+    条目
+    <LinearLayout
+        android:id="@+id/pay_applell"
+        style="@style/pay_linear">
+        <ImageView
+            android:src="@mipmap/balance_appstore"
+            style="@style/pay_left" />
+        <TextView
+            android:text="苹果商店支付"
+            style="@style/pay_text" />
+
+        <include
+            android:id="@+id/pay_appleCb"
+            layout="@layout/pay_right" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y20"
+        android:background="#f4f4f4"
+        />
+    余额支付
+    <LinearLayout
+        android:id="@+id/pay_yuEll"
+        style="@style/pay_linear">
+        <ImageView
+            android:src="@mipmap/balance_remainder"
+            style="@style/pay_left" />
+        <TextView
+            android:text="余额支付"
+            style="@style/pay_text" />
+
+        <include
+            android:id="@+id/pay_yuECb"
+            layout="@layout/pay_right" />
+
+    </LinearLayout>
+    余额不足
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y60"
+        android:orientation="horizontal"
+        >
+        <ImageView
+           
+            style="@style/pay_left" />
+        <TextView
+            android:text="余额不足"
+            style="@style/pay_text"
+            android:textColor="#e94b41"
+            />
+
+       <Button
+           android:background="@mipmap/course_recharge"
+           android:layout_width="@dimen/x122"
+           android:layout_height="@dimen/y40"
+           android:layout_marginRight="@dimen/x33"
+           />
+        
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y20"
+        android:background="#f4f4f4"
+        />
+    <LinearLayout
+        android:id="@+id/pay_wechat"
+        style="@style/pay_linear">
+        <ImageView
+            android:src="@mipmap/balance_wechat"
+            style="@style/pay_left" />
+        <TextView
+            android:text="微信支付"
+            style="@style/pay_text" />
+
+        <include
+            android:id="@+id/pay_wechatCb"
+            layout="@layout/pay_right" />
+
+    </LinearLayout>
+    ---
+    <LinearLayout
+        android:id="@+id/pay_aliay"
+        style="@style/pay_linear">
+        <ImageView
+            android:src="@mipmap/balance_alipay"
+            style="@style/pay_left" />
+        <TextView
+            android:text="支付宝支付"
+            style="@style/pay_text" />
+
+        <include
+            android:id="@+id/pay_aliayCb"
+            layout="@layout/pay_right" />
+
+    </LinearLayout>
+
+    确认支付
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y200"
+
+        android:background="#f4f4f4"
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/pay_ok"
+            android:layout_width="@dimen/x778"
+            android:layout_height="@dimen/y80"
+            android:layout_gravity="center_horizontal"
+            android:background="@mipmap/balance_confirm"
+            android:layout_marginTop="@dimen/y110"
+
+            />
+        
+    </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+  <!--  <TextView
+        android:text="colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView" />-->
+
+</LinearLayout>

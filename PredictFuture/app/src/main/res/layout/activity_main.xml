@@ -14,8 +14,8 @@
     底部栏
 
     <RadioGroup
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="@dimen/x55"
+        android:layout_marginRight="@dimen/x55"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -25,15 +25,15 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-
+            android:layout_marginBottom="@dimen/y13"
             android:button="@null"
-            android:drawablePadding="13.3dp"
+            android:drawablePadding="@dimen/y20"
             android:drawableTop="@drawable/sy_study"
             android:gravity="center_horizontal"
             android:text="学习"
 
             android:textColor="@drawable/sy_text_coclor"
-            android:textSize="10sp"
+            android:textSize="13.3sp"
 
             />
 
@@ -42,14 +42,14 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="13.3dp"
+            android:layout_marginBottom="@dimen/y13"
             android:button="@null"
-            android:drawablePadding="13.3dp"
+            android:drawablePadding="@dimen/y20"
             android:drawableTop="@drawable/sy_classes"
             android:gravity="center_horizontal"
             android:text="课程"
             android:textColor="@drawable/sy_text_coclor"
-            android:textSize="10sp"
+            android:textSize="13.3sp"
 
             />
 
@@ -58,15 +58,15 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="13.3dp"
+            android:layout_marginBottom="@dimen/y13"
 
             android:button="@null"
-            android:drawablePadding="13.3dp"
+            android:drawablePadding="@dimen/y20"
             android:drawableTop="@drawable/sy_myself"
             android:gravity="center_horizontal"
             android:text="我的"
             android:textColor="@drawable/sy_text_coclor"
-            android:textSize="10sp"
+            android:textSize="13.3sp"
 
             />
     </RadioGroup>

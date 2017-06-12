@@ -1,8 +1,8 @@
 package com.predictF.predictFuture.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,9 +14,8 @@ import com.predictF.predictFuture.R;
 import com.predictF.predictFuture.bean.UrlBean;
 import com.predictF.predictFuture.modle.base.MyAdapter;
 import com.predictF.predictFuture.presenter.base.BasePresenterClass;
-import com.predictF.predictFuture.presenter.main.PresenterClass;
 import com.predictF.predictFuture.util.Image;
-import com.predictF.predictFuture.view.base.IBaseView;
+import com.predictF.predictFuture.view.base.BaseFragment;
 import com.youth.banner.Banner;
 
 import java.util.ArrayList;
@@ -31,7 +30,7 @@ import butterknife.Unbinder;
  * <p/>
  * 类的用途：
  */
-public class SY_Fragment extends Fragment implements IBaseView {
+public class SY_Fragment extends BaseFragment {
     @BindView(R.id.sy_banner)
     Banner syBanner;
     @BindView(R.id.sy_freeRecycle)
@@ -77,11 +76,26 @@ public class SY_Fragment extends Fragment implements IBaseView {
 
     @Override
     public void showBest(UrlBean bean,MyAdapter adapter) {
-        ArrayList<UrlBean.Try> trys = bean.data.topic;
+        ArrayList<UrlBean.Try> trys = bean.data.list_try;
         Log.i("sy_Fragment",trys.size()+"");
         LinearLayoutManager list_layout = new LinearLayoutManager(getActivity().getApplication());//listview样式，也是默认的
         syChooseRecycle.setLayoutManager(list_layout);
         syChooseRecycle.setAdapter(adapter);
+        adapter.setOnItemClickListner(new MyAdapter.ItemClick() {
+            @Override
+            public void onItemClick(String object_id) {
+                //得到了id  开始请求详情界面数据
+                Log.i("sy_Fragment",object_id+"-object_id");
+                Intent intent=new Intent(getActivity(),DetailClassActivity.class);
+              intent.putExtra("object_id",object_id);
+                getContext().startActivity(intent);
+            }
+        });
+    }
+
+
+    public void viewClick(){
+
     }
 
 }

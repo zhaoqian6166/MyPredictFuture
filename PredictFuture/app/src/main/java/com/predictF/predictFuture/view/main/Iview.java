@@ -16,5 +16,11 @@ public interface Iview {
    // void showBanner(UrlBean bean);
     //用户注册
     void userRegin(UrlBean bean);
+    //登录
+    void userPwdLogin(UrlBean bean);
+    //详情页面数据
+    void showDetail(UrlBean bean);
+    //收藏
+    void getHeartV(UrlBean bean);
 
 }

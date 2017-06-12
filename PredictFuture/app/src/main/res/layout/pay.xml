@@ -2,6 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+   <!-- <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -42,6 +48,7 @@
            android:layout_gravity="center_horizontal"
            style="@style/text_gray" />
         <TextView
+            android:id="@+id/pay_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="￥6.00"
@@ -208,10 +215,12 @@
             android:textColor="#323232"
             android:gravity="center_vertical"
             />
-        <ImageView
+        <CheckBox
+            android:id="@+id/pay_wechat"
             android:layout_gravity="center_vertical"
             android:layout_width="26.7dp"
             android:layout_height="26.7dp"
+        android:background="@drawable/pay_choose"
             android:src="@drawable/pay_choose"
             android:layout_marginRight="20dp"
 
@@ -242,11 +251,13 @@
             android:textColor="#323232"
             android:gravity="center_vertical"
             />
-        <ImageView
+        <CheckBox
+            android:id="@+id/pay_aliay"
             android:layout_gravity="center_vertical"
             android:layout_width="26.7dp"
             android:layout_height="26.7dp"
-            android:src="@drawable/pay_choose"
+            android:background="@drawable/pay_choose"
+
             android:layout_marginRight="20dp"
 
             />
@@ -260,6 +271,7 @@
         android:orientation="vertical"
         >
    <Button
+       android:id="@+id/pay_ok"
     android:layout_width="466.7dp"
     android:layout_height="53.3dp"
     android:background="@mipmap/balance_confirm"
@@ -268,4 +280,5 @@
 
     />
     </LinearLayout>
+
 </LinearLayout>
